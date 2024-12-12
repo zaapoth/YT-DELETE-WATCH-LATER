@@ -1,0 +1,16 @@
+setInterval(() => {
+const select = document.querySelectorAll(
+"button yt-icon.style-scope.ytd-menu-renderer"
+);
+select[2].click();
+
+const menu = document.querySelector(
+'.style-scope.ytd-menu-popup-renderer[role="listbox"]'
+);
+
+const items = menu.querySelectorAll("yt-formatted-string");
+
+Array.from(items)
+.filter((span) => span.textContent.includes("Eliminar de"))
+.forEach((span) => span.click());
+}, 200);
