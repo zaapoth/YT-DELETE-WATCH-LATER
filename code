@@ -1,3 +1,4 @@
+// Codigo Principal
 setInterval(() => {
 const select = document.querySelectorAll(
 "button yt-icon.style-scope.ytd-menu-renderer"
@@ -14,3 +15,24 @@ Array.from(items)
 .filter((span) => span.textContent.includes("Eliminar de"))
 .forEach((span) => span.click());
 }, 200);
+
+
+// Incluir Videos Privados
+setInterval(function () {
+    video = document.getElementsByTagName('ytd-playlist-video-renderer')[0];
+
+    video.querySelector('#button').click();
+
+    var things = document.evaluate(
+        '//span[contains(text(),"Eliminar de")]',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null
+    );
+
+    for (var i = 0; i < things.snapshotLength; i++) 
+    {
+        things.snapshotItem(i).click();
+    }
+}, 500);
